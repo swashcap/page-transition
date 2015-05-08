@@ -24,40 +24,7 @@
     padding-right: 1em;
     padding-left: 1em;
 
-    @media (min-width: $screen-md) {
+    @media (min-width: $screen-lg) {
         width: 80%;
-    }
-}
-
-.site-header {
-    background: $base3;
-    left: 0;
-    padding: 1em;
-    position: fixed;
-    text-align: center;
-    top: 0;
-    transition: opacity $transition-duration;
-    width: 100%;
-    z-index: 1;
-
-    a[rel='home'] {
-        @include font-size-medium;
-
-        color: $base01;
-        display: inline-block;
-        font-family: $font-sans-serif;
-        font-weight: 700;
-        line-height: 1;
-        text-decoration: none;
-    }
-}
-
-/** 'Scrolled' state */
-
-.is-scrolled.site-header {
-    opacity: .5;
-
-    &:hover {
-        opacity: 1;
     }
 }

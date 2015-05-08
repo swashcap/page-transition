@@ -2,34 +2,15 @@
     'use strict';
 
     /**
-     * Throttle function taken from Mr. Sampson.
-     * @{@link  http://sampsonblog.com/749/simple-throttle-function}
+     * Fancy header-ness with Headroom.js
+     *
+     * @{@link  http://wicky.nillia.ms/headroom.js/}
      */
-    function throttle (callback, limit) {
-        var wait = false;
-        return function () {
-            if (!wait) {
-                callback.call();
-                wait = true;
-                setTimeout(function () {
-                    wait = false;
-                }, limit);
-            }
-        }
-    }
-
-    function scrollHandler() {
-        var $el = Transition._isParent ?
-            Transition.$parentPage :
-            Transition.$childPage;
-        var scrollTop = $el.scrollTop();
-
-        $('.site-header').toggleClass('is-scrolled', scrollTop > 20);
-
-        console.log(scrollTop);
-    }
-
-    $('.content-page').scroll(throttle(scrollHandler, 120));
+    var headroom = new Headroom(document.querySelector('.site-header'), {
+        offset: 15,
+        scroller: document.querySelector('.content-page')
+    });
+    headroom.init();
 
     var App = window.App || {};
 

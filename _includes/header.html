@@ -1,5 +1,11 @@
 <header class="site-header" role="banner">
     <div class="wrapper">
-        <a class="site-title" href="{{ site.baseurl }}/" rel="home">{{ site.title }}</a>
+        <button class="site-header__back" aria-label="Back to home page" title="Back">
+            <span aria-hidden="true">&larr;</span>
+        </button>
+        <a href="{{ site.baseurl }}/" class="site-header__title" rel="home">{{ site.title }}</a>
+        <a href="#about" class="site-header__about">
+            <span>About</span>
+        </a>
     </div>
 </header>

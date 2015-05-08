@@ -18,12 +18,16 @@
     height: 100%;
     left: 0;
     overflow: scroll;
-    padding: 5.5em 0 0;
+    padding: 5em 0 0;
     position: absolute;
     top: 0;
     transform: translate3d(0, 0, 0);
     visibility: hidden;
     width: 100%;
+
+    @media (min-width: $screen-md) {
+        padding-top: 7em;
+    }
 }
 .content-page-1 {
 

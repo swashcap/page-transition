@@ -2,3 +2,124 @@
    Site Header
    ========================================================================== */
 
+
+.site-header {
+    background: $base3;
+    font-family: $font-sans-serif;
+    text-align: center;
+    transition-duration: $transition-duration;
+    transition-property: background, opacity, transform;
+
+    .wrapper {
+        position: relative;
+
+        @media (min-width: $screen-md) {
+            padding-top: 1em;
+            padding-bottom: 1em;
+        }
+    }
+
+    &.headroom {
+        left: 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+    }
+
+    &.headroom--unpinned {
+        opacity: .7;
+
+        &:hover {
+            opacity: 1;
+        }
+
+        @media (min-width: $screen-md) {
+            transform: translateY(-2rem);
+
+            .site-header__title,
+            .site-header__back,
+            .site-header__about {
+                transform: translateY(1rem);
+            }
+        }
+    }
+    &.headroom--not-top {
+        background: rgba($base3, .9);
+    }
+}
+
+.site-header__title {
+    @include font-size-medium;
+
+    color: $base01;
+    display: inline-block;
+    line-height: 1;
+    padding: 1em 0;
+    text-decoration: none;
+    transition: transform $transition-duration;
+}
+
+.site-header__back,
+.site-header__about {
+    font-weight: 700;
+    position: absolute;
+    top: 0;
+    transition: transform $transition-duration;
+
+    @media (min-width: $screen-md) {
+        top: 1em;
+    }
+}
+
+.site-header__back {
+    background: none;
+    border-radius: 0;
+    border: none;
+    color: $base1;
+    left: 0;
+    padding: 1em;
+
+    &:focus,
+    &:hover,
+    &:active {
+        color: $base01;
+    }
+
+    span {
+        font-size: 150%;
+        line-height: .75;
+        vertical-align: bottom;
+    }
+}
+.site-header__about {
+    display: inline-block;
+    padding: 1em;
+    right: 0;
+    text-decoration: none;
+
+    &:focus,
+    &:hover,
+    &:active {
+        &:after {
+            background: $base1;
+        }
+    }
+
+    &:after {
+        background: $yellow;
+        border-radius: 50%;
+        color: $base3;
+        content: '?';
+        display: inline-block;
+        font-size: 150%;
+        height: 1.25em;
+        line-height: 1.25;
+        width: 1.25em;
+    }
+
+    span {
+        font-size: 0;
+        line-height: 0;
+    }
+}
