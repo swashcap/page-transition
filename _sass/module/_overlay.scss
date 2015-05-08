@@ -1,0 +1,57 @@
+/* ==========================================================================
+   Overlay
+   ========================================================================== */
+
+.overlay {
+    background: rgba($green, .5);
+    display: block;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    opacity: 0;
+    transition: opacity $transition-duration;
+    top: 0;
+    width: 100%;
+    visibility: hidden;
+    z-index: 3;
+
+    &:before,
+    &:after {
+        -webkit-animation: overlayLoading ($transition-duration * 2) ease-in-out alternate infinite;
+        border-radius: 50%;
+        content: '';
+        display: inline-block;
+        height: 8em;
+        margin: -4em 0 0 -4em;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        width: 8em;
+    }
+    &:before {
+        background: $base2;
+        opacity: .75;
+    }
+    &:after {
+        -webkit-animation-delay: $transition-duration;
+        -webkit-animation-direction: alternate-reverse;
+        background: $base1;
+        opacity: .5;
+    }
+
+    .is-loading & {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@-webkit-keyframes overlayLoading {
+    from {
+        -webkit-transform: translateX(-25%);
+                transform: translateX(-25%);
+    }
+    to {
+        -webkit-transform: translateX(25%);
+                transform: translateX(25%);
+    }
+}

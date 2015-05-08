@@ -3,47 +3,61 @@
 ---
 @charset "utf-8";
 
+@import 'base/var';
+@import 'base/mixins';
 
+@import 'vendor/normalize';
+@import 'base/defaults';
 
-// Our variables
-$base-font-family: Helvetica, Arial, sans-serif;
-$base-font-size:   16px;
-$small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
+@import 'module/article';
+@import 'module/content';
+@import 'module/overlay';
+@import 'module/site-footer';
+@import 'module/site-header';
 
-$spacing-unit:     30px;
+@import 'layout/home';
 
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
+.wrapper {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 72em;
+    padding-right: 1em;
+    padding-left: 1em;
 
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
-
-$on-palm:          600px;
-$on-laptop:        800px;
-
-
-
-// Using media queries with like this:
-// @include media-query($palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
-@mixin media-query($device) {
-    @media screen and (max-width: $device) {
-        @content;
+    @media (min-width: $screen-md) {
+        width: 80%;
     }
 }
 
+.site-header {
+    background: $base3;
+    left: 0;
+    padding: 1em;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    transition: opacity $transition-duration;
+    width: 100%;
+    z-index: 1;
 
+    a[rel='home'] {
+        @include font-size-medium;
 
-// Import partials from `sass_dir` (defaults to `_sass`)
-@import
-        "base",
-        "layout",
-        "syntax-highlighting"
-;
+        color: $base01;
+        display: inline-block;
+        font-family: $font-sans-serif;
+        font-weight: 700;
+        line-height: 1;
+        text-decoration: none;
+    }
+}
+
+/** 'Scrolled' state */
+
+.is-scrolled.site-header {
+    opacity: .5;
+
+    &:hover {
+        opacity: 1;
+    }
+}

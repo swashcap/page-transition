@@ -1,0 +1,131 @@
+// _content.scss
+
+/**
+ * Page content containers for page animations.
+ *
+ * @{@link  http://tympanus.net/codrops/2013/05/07/a-collection-of-page-transitions/}
+ */
+
+.content {
+    height: 100%;
+    perspective: 1000px;
+    position: relative;
+    width: 100%;
+    transform-style: preserve-3d;
+}
+.content-page {
+    backface-visibility: hidden;
+    height: 100%;
+    left: 0;
+    overflow: scroll;
+    padding: 5.5em 0 0;
+    position: absolute;
+    top: 0;
+    transform: translate3d(0, 0, 0);
+    visibility: hidden;
+    width: 100%;
+}
+.content-page-1 {
+
+}
+.content-page-2 {
+
+}
+
+/** States */
+
+.is-active {
+    visibility: visible;
+}
+.is-entering {
+    -webkit-animation: moveFromRight $animation-duration ease both;
+            animation: moveFromRight $animation-duration ease both;
+
+    &.is-parent {
+        -webkit-animation-name: moveFromLeft;
+                animation-name: moveFromLeft;
+    }
+}
+.is-leaving {
+    -webkit-animation: moveToLeft $animation-duration ease both;
+            animation: moveToLeft $animation-duration ease both;
+
+    &.is-parent {
+        -webkit-animation: moveToRight $animation-duration ease both;
+                animation: moveToRight $animation-duration ease both;
+    }
+}
+
+/** Animations */
+
+@-webkit-keyframes moveToLeft {
+    from {}
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, -200px);
+                transform: translate3d(-100%, 0, -200px);
+    }
+}
+@keyframes moveToLeft {
+    from {}
+    to {
+        opacity: 0;
+        transform: translate3d(-100%, 0, -200px);
+    }
+}
+
+@-webkit-keyframes moveToRight {
+    from {}
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, -200px);
+                transform: translate3d(100%, 0, -200px);
+    }
+}
+@keyframes moveToRight {
+    from {}
+    to {
+        opacity: 0;
+        transform: translate3d(100%, 0, -200px);
+    }
+}
+
+@-webkit-keyframes moveFromLeft {
+    from {
+        opacity: 0;
+        -webkit-transform: translateX(-100%);
+                transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes moveFromLeft {
+    from {
+        -webkit-transform: translateX(-100%);
+                transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes moveFromRight {
+    from {
+        opacity: 0;
+        -webkit-transform: translateX(100%);
+                transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes moveFromRight {
+    from {
+        -webkit-transform: translateX(100%);
+                transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+    }
+}

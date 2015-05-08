@@ -1,0 +1,80 @@
+// _defaults.scss
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html {
+    color: $base01;
+    background: $green;
+    font-family: $font-serif;
+    line-height: 1.4;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+a {
+    color: $base01;
+}
+
+blockquote {
+    @include font-size-medium;
+    color: $base01;
+    font-family: $font-sans-serif;
+    font-weight: 700;
+    margin: 1em 0;
+    padding: 0 1.5em;
+    position: relative;
+
+    @media (min-width: $screen-md) {
+        margin: 1.5em 4em 1.5em 2em;
+    }
+
+    &:before,
+    &:after {
+        color: $base2;
+        display: inline-block;
+        font-size: 300%;
+        font-weight: 400;
+        line-height: .5;
+        position: absolute;
+        width: .4em;
+    }
+    &:before {
+        content: '“';
+        left: 0;
+        text-align: right;
+        top: 0;
+    }
+    &:after {
+        bottom: -.333em;
+        content: '”';
+        right: 0;
+    }
+
+    blockquote {
+        margin: .5em 0;
+        padding: 0 0 0 .5em;
+
+        @media (min-width: $screen-md) {
+            margin: .75em 0;
+            padding-left: .75em;
+        }
+
+        &:before,
+        &:after {
+            content: '';
+            display: none;
+        }
+    }
+}
+
+h1,
+h2 {
+    margin: 0;
+}

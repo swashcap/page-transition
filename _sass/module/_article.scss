@@ -1,0 +1,123 @@
+/* ==========================================================================
+   Article
+   ========================================================================== */
+
+%article {
+    .entry-title {
+        font-family: $font-sans-serif;
+    }
+}
+
+/* Regular
+   ========================================================================== */
+
+.article {
+    @extend %article;
+
+    background: $base3;
+    color: $base03;
+
+    .entry-header {
+        background: $base03;
+        color: $base2;
+        padding: 1em;
+    }
+    .entry-title {
+    }
+    .entry-content {
+        padding: 1em;
+
+        > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    /** Content */
+    a {
+        color: $yellow;
+
+        &:focus,
+        &:hover,
+        &:active {
+            color: $base1;
+        }
+    }
+}
+
+/* Mini Article
+   ========================================================================== */
+
+.article-mini {
+    @extend %article;
+
+    position: relative;
+
+    a {
+        background: $base3;
+        color: $base01;
+        display: block;
+        height: 100%;
+        overflow: hidden;
+        padding: 1em 1em 2em;
+        position: relative;
+        text-decoration: none;
+        transition: color $transition-duration;
+        width: 100%;
+
+        &:focus,
+        &:hover,
+        &:active {
+            color: $base03;
+
+            &:after {
+                transform: none;
+            }
+            .updated {
+                color: $base03;
+            }
+        }
+
+        &:after {
+            background: $base2;
+            bottom: 0;
+            content: '';
+            display: block;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            transform: translateY(92%);
+            transition: transform $transition-duration;
+            width: 100%;
+        }
+    }
+
+    .entry-header {
+        position: relative;
+        z-index: 2;
+    }
+    .entry-title {
+        font-size: 110%;
+        font-weight: 700;
+        line-height: 1.15;
+        margin: 0 0 .125em;
+
+        @media (min-width: $screen-sm) and (max-width: $screen-md - .01em),
+        (min-width: $screen-lg) {
+            font-size: 150%;
+            line-height: 1.2;
+            margin-bottom: .25em;
+        }
+    }
+    .updated {
+        color: $yellow;
+        font-size: 80%;
+        letter-spacing: .125ex;
+        text-transform: uppercase;
+        transition: color $transition-duration;
+
+        @media (min-width: $screen-sm) and (max-width: $screen-md - .01em),
+        (min-width: $screen-lg) {
+            font-size: 100%;
+        }
+    }
+}

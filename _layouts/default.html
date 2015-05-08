@@ -1,20 +1,35 @@
 <!DOCTYPE html>
 <html>
 
-  {% include head.html %}
+    {% include head.html %}
 
-  <body>
+    <body>
 
-    {% include header.html %}
+        {% include header.html %}
 
-    <div class="page-content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
-    </div>
+        <div class="content">
+            <div class="content-page content-page-1 is-active">
+                <div id="page-1-content" class="wrapper">
 
-    {% include footer.html %}
+                    {{ content }}
 
-  </body>
+                </div>
+                <div class="wrapper">
+                    <footer class="site-footer" role="contentinfo">
+                        <p>{{ site.description }}</p>
+                        <small>A fun project by <a href="http://swashcap.com/" rel="author">Cory Reed</a>. See the <a href="https://github.com/swashcap/page-transition">source code on GitHub</a>.</small>
+                    </footer>
+                </div>
+            </div>
+            <div class="content-page content-page-2">
+                <div id="page-2-content" class="wrapper"></div>
+            </div>
+        </div><!-- .content -->
+
+        <div class="overlay"></div>
+
+        {% include footer.html %}
+
+    </body>
 
 </html>

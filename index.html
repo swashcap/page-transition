@@ -3,21 +3,36 @@ layout: default
 ---
 
 <div class="home">
-
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
     {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+        {% if forloop.index == 1 %}
+            <div class="home-group home-group-1">
+        {% elsif forloop.index == 4 %}
+            <div class="home-group home-group-2">
+        {% elsif forloop.index == 6 %}
+            <div class="home-group home-group-3">
+        {% elsif forloop.index == 9 %}
+            <div class="home-group home-group-4">
+        {% endif %}
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
+        <div class="item item-{{ forloop.index }}">
+            <article class="article-mini hentry">
+                <a href="{{ post.url | prepend: site.baseurl }}" rel="bookmark">
+                    <div class="entry-header">
+                        <h2 class="entry-title">{{ post.title}}</h2>
+                        <time class="updated published">{{ post.date | date: "%b %-d, %Y" }}</time>
+                    </div>
+                </a>
+            </article><!-- .hentry -->
+        </div>
+
+        {% if forloop.index == 3 %}
+            </div><!-- .home-group.home-group-1 -->
+        {% elsif forloop.index == 5 %}
+            </div><!-- .home-group.home-group-2 -->
+        {% elsif forloop.index == 8 %}
+            </div><!-- .home-group.home-group-3 -->
+        {% elsif forloop.last %}
+            </div><!-- .home-group.home-group-4 -->
+        {% endif %}
     {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
-</div>
+</div><!-- .home -->

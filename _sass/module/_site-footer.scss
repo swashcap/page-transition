@@ -1,0 +1,21 @@
+/* ==========================================================================
+   Site Footer
+   ========================================================================== */
+
+.site-footer {
+    background: $base01;
+    color: $base1;
+    padding: 1em;
+
+    p {
+
+    }
+    small {
+        display: block;
+        font-size: 100%;
+        line-height: inherit;
+    }
+    a {
+        color: inherit;
+    }
+}
