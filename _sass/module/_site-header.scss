@@ -65,7 +65,6 @@
     font-weight: 700;
     position: absolute;
     top: 0;
-    transition: transform $transition-duration;
 
     @media (min-width: $screen-md) {
         top: 1em;
@@ -79,6 +78,8 @@
     color: $base1;
     left: 0;
     padding: 1em;
+    transition-duration: $transition-duration;
+    transition-property: opacity, transform;
 
     &:focus,
     &:hover,
@@ -91,12 +92,18 @@
         line-height: .75;
         vertical-align: bottom;
     }
+
+    /** 'Hidden' state */
+    &.is-hidden {
+        opacity: 0;
+    }
 }
 .site-header__about {
     display: inline-block;
     padding: 1em;
     right: 0;
     text-decoration: none;
+    transition: transform $transition-duration;
 
     &:focus,
     &:hover,

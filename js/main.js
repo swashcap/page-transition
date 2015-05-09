@@ -1,18 +1,7 @@
 (function ($) {
     'use strict';
 
-    /**
-     * Fancy header-ness with Headroom.js
-     *
-     * @{@link  http://wicky.nillia.ms/headroom.js/}
-     */
-    var headroom = new Headroom(document.querySelector('.site-header'), {
-        offset: 15,
-        scroller: document.querySelector('.content-page')
-    });
-    headroom.init();
-
-    var App = window.App || {};
+    var $app = $('body').eq(0);
 
     var Transition = {
         _isAnimating: false,
@@ -133,6 +122,7 @@
         transitionTo: function (url) {
             var self = this;
             var then = Date.now();
+            var deferred = $.Deferred();
             var t;
             var MIN_DURATION = 1000;
 
@@ -143,6 +133,8 @@
                     Transition.toParentPage();
                     self.unsetLoading();
 
+                    deferred.resolve(url);
+                    $app.trigger('route:change', url);
                     clearTimeout(t);
                 }, MIN_DURATION);
             } else {
@@ -154,6 +146,8 @@
                         Transition.toChildPage();
                         self.unsetLoading();
 
+                        deferred.resolve(url);
+                        $app.trigger('route:change', url);
                         clearTimeout(t);
                     },
                         // Make sure the 'loading' state shows for at least 1 second
@@ -161,16 +155,90 @@
                     );
                 }, function (err) {
                     // Handle error
-                    console.log(err);
+                    deferred.reject(err);
                     self.unsetLoading();
                 });
             }
+
+            return deferred.promise();
         }
     };
 
-    $('.site-header a, .home a').click(function (e) {
+    $('.site-header__title, .home a').click(function (e) {
         e.preventDefault();
 
         Router.transitionTo(this.getAttribute('href'));
     });
+
+    $('.site-header__back').click(function (e) {
+        e.preventDefault();
+
+        Router.transitionTo('/');
+    });
+
+    $('.site-header__about').click(function (e) {
+        e.preventDefault();
+
+        var $target = $(this.getAttribute('href'));
+        var scrollToTarget = function () {
+            var top = $target.offset().top;
+
+            Transition.$parentPage.animate({
+                scrollTop: top
+            }, 'fast');
+        };
+
+        if ($target.length) {
+            if (! Transition._isParent) {
+                Router.transitionTo('/').then(scrollToTarget);
+            } else {
+                scrollToTarget();
+            }
+        }
+    });
+
+    /**
+     * Fancy header-ness with Headroom.js
+     *
+     * @{@link  http://wicky.nillia.ms/headroom.js/}
+     */
+    var headroom;
+    var getHeadroomOptions = function () {
+        var scroller = Transition._isParent ?
+            Transition.$parentPage.get().pop() :
+            Transition.$childPage.get().pop();
+
+        return {
+            offset: 15,
+            scroller: scroller
+        };
+    };
+    var initHeadroom = function () {
+        if (headroom instanceof Headroom) {
+            headroom.destroy();
+        }
+
+        headroom = new Headroom(
+            document.querySelector('.site-header'),
+            getHeadroomOptions.call()
+        );
+        headroom.init();
+    };
+    initHeadroom();
+
+    /**
+     * Toggle class on the header 'back' button when routes change.
+     *
+     * @todo Refactor this
+     */
+    $app.on('route:change', function (e, url) {
+        var $el = $('.site-header__back');
+
+        $el.toggleClass('is-hidden', (url === '/'));
+    });
+
+    /**
+     * Change the Headroom scrolling context when the route changes.
+     */
+    $app.on('route:change', initHeadroom);
 })(jQuery);
