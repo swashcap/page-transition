@@ -21,25 +21,96 @@
     .entry-header {
         @include horizontal-padding;
 
-        background: $base03;
-        color: $base2;
+        background-color: $base03;
+        background:
+            linear-gradient(-45deg, transparent 50%, $base02 50%),
+            $base03;
+        background-size: 6em 6em;
+        color: $base3;
         margin-bottom: 1em;
+        overflow: hidden;
         padding-top: 3em;
         padding-bottom: 1em;
+        position: relative;
+
+        &:before,
+        &:after {
+            content: '';
+            display: inline-block;
+            position: absolute;
+        }
+        &:before {
+            border-radius: 10em 0 0 10em;
+            background: $base01;
+            height: 20em;
+            left: 20%;
+            opacity: .5;
+            top: 0;
+            width: 10em;
+        }
+        &:after {
+            background: radial-gradient($yellow 30%, transparent 31%) 50% 50%;
+            background-size: 1em 1em;
+            top: 10%;
+            height: 80%;
+            opacity: .9;
+            right: 5%;
+            width: 20%;
+        }
 
         @media (min-width: $screen-sm) {
             margin-bottom: 2em;
             padding-top: 5em;
             padding-bottom: 2em;
         }
+        @media (min-width: $screen-md) {
+            padding-top: 7em;
+            padding-bottom: 3em;
+        }
+        @media (min-width: $screen-lg) {
+            padding-top: 12em;
+            padding-bottom: 6em;
+        }
 
         .updated {
             @include font-size-small;
-            color: $base1;
+
+            color: $base2;
+            display: block;
+
+            &:before,
+            &:after {
+                content: '';
+                display: inline-block;
+                position: absolute;
+            }
+            &:before {
+                background: $base01;
+                border-radius: 0 0 20em 0;
+                height: 20em;
+                // opacity: .5;
+                right: 10%;
+                top: 0;
+                width: 20em;
+            }
+            &:after {
+                background: $base1;
+                border-radius: 15em 15em 0 0;
+                bottom: -10%;
+                height: 15em;
+                opacity: .5;
+                right: 10%;
+                width: 30em;
+            }
+
+            @media (min-width: $screen-md) {
+                @include font-size-regular;
+            }
         }
     }
     .entry-title {
-        //margin-bottom: 0;
+        position: relative;
+        z-index: 2;
     }
     .entry-content {
         @include horizontal-padding;
