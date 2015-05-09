@@ -24,9 +24,10 @@ a {
 
 blockquote {
     @include font-size-medium;
+
     color: $base01;
     font-family: $font-sans-serif;
-    font-weight: 700;
+    font-weight: 400;
     margin: 1em 0;
     padding: 0 1.5em;
     position: relative;
@@ -74,7 +75,59 @@ blockquote {
     }
 }
 
-h1,
+/* Headings
+   ========================================================================== */
+
+h1 {
+    @include font-size-xlarge;
+
+    margin: 0 0 .5em;
+}
 h2 {
-    margin: 0;
+    @include font-size-large;
+
+    font-family: $font-sans-serif;
+    font-weight: 400;
+    margin: 1em 0 .33em;
+}
+h3 {
+    @include font-size-medium;
+
+    letter-spacing: .1ex;
+    font-family: $font-sans-serif;
+    text-transform: uppercase;
+    margin: 0 0 .75em;
+}
+
+/* Block Elements
+   ========================================================================== */
+
+p,
+ol,
+ul {
+    margin: 0 0 1em;
+}
+
+ol {
+    padding: 0 0 0 2em;
+}
+ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+        padding: 0 0 0 2em;
+        position: relative;
+
+        &:before {
+            content: '\25AA';
+            color: $base2;
+            display: inline-block;
+            left: 0;
+            position: absolute;
+            text-align: center;
+            top: 0;
+            width: 2em;
+        }
+    }
 }

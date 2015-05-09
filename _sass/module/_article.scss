@@ -15,17 +15,44 @@
     @extend %article;
 
     background: $base3;
+    border-bottom: 1em solid $base2;
     color: $base03;
 
     .entry-header {
+        @include horizontal-padding;
+
         background: $base03;
         color: $base2;
-        padding: 1em;
+        margin-bottom: 1em;
+        padding-top: 3em;
+        padding-bottom: 1em;
+
+        @media (min-width: $screen-sm) {
+            margin-bottom: 2em;
+            padding-top: 5em;
+            padding-bottom: 2em;
+        }
+
+        .updated {
+            @include font-size-small;
+            color: $base1;
+        }
     }
     .entry-title {
+        //margin-bottom: 0;
     }
     .entry-content {
-        padding: 1em;
+        @include horizontal-padding;
+
+        margin-right: auto;
+        margin-left: auto;
+
+        @media (min-width: $screen-md) {
+            width: 75%;
+        }
+        @media (min-width: $screen-lg) {
+            width: 50%;
+        }
 
         > *:last-child {
             margin-bottom: 0;
@@ -33,13 +60,18 @@
     }
 
     /** Content */
-    a {
+
+    h2,
+    h3 {
         color: $yellow;
+    }
+    a {
+        color: $base01;
 
         &:focus,
         &:hover,
         &:active {
-            color: $base1;
+            color: $yellow;
         }
     }
 }

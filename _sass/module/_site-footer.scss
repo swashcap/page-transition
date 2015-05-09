@@ -3,19 +3,52 @@
    ========================================================================== */
 
 .site-footer {
-    background: $base01;
-    color: $base1;
-    padding: 1em;
+    @include clearfix;
 
-    p {
+    color: mix($base01, $green, 80%);
+    margin: 0 -.5em 1em;
 
-    }
-    small {
-        display: block;
-        font-size: 100%;
-        line-height: inherit;
-    }
     a {
         color: inherit;
+
+        &:focus,
+        &:hover,
+        &:active {
+            color: $base03;
+        }
+    }
+}
+.site-footer__left,
+.site-footer__right {
+    padding: 0 .5em;
+
+    @media (min-width: $screen-md) {
+        float: left;
+    }
+}
+.site-footer__left {
+    @media (min-width: $screen-md) {
+        width: 66.67%;
+    }
+
+    p {
+        margin: 0;
+    }
+}
+.site-footer__right {
+    font-family: $font-sans-serif;
+
+    @media (min-width: $screen-md) {
+        width: 33.33%;
+    }
+
+    p {
+        @include font-size-small;
+
+        margin: 0;
+
+        + p {
+            margin-top: .75em;
+        }
     }
 }

@@ -18,11 +18,11 @@
 @import 'layout/home';
 
 .wrapper {
+    @include horizontal-padding;
+
     margin-right: auto;
     margin-left: auto;
     max-width: 72em;
-    padding-right: 1em;
-    padding-left: 1em;
 
     @media (min-width: $screen-lg) {
         width: 80%;
