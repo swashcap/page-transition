@@ -6,7 +6,16 @@
     @include clearfix;
 
     color: mix($base01, $green, 80%);
-    margin: 0 -.5em 1em;
+    margin: 2em -.5em 1em;
+
+    @media (min-width: $screen-md) {
+        margin-top: 4em;
+        margin-bottom: 3em;
+    }
+    @media (min-width: $screen-lg) {
+        margin-top: 6em;
+        margin-bottom: 4em;
+    }
 
     a {
         color: inherit;
@@ -29,10 +38,10 @@
 .site-footer__left {
     @media (min-width: $screen-md) {
         width: 66.67%;
-    }
 
-    p {
-        margin: 0;
+        p {
+            margin: 0;
+        }
     }
 }
 .site-footer__right {
