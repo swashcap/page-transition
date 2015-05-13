@@ -17,6 +17,13 @@
     background: $base3;
     border-bottom: 1em solid $base2;
     color: $base03;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+
+    @media (min-width: $screen-md) {
+        margin-bottom: 3em;
+        padding-bottom: 2em;
+    }
 
     .entry-header {
         @include horizontal-padding;
