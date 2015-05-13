@@ -142,7 +142,7 @@
                     var $target = $('#page-2-content');
                     var now = Date.now();
                     t = setTimeout(function () {
-                        $target.html('<article class="article">' + text + '</article>');
+                        $target.html(text);
                         Transition.toChildPage();
                         self.unsetLoading();
 
