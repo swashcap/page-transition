@@ -15,34 +15,44 @@
     visibility: hidden;
     z-index: 3;
 
-    &:before,
-    &:after {
-        -webkit-animation: overlayLoading ($transition-duration * 2) ease-in-out alternate infinite;
-        border-radius: 50%;
-        content: '';
-        display: inline-block;
-        height: 8em;
-        margin: -4em 0 0 -4em;
-        left: 50%;
-        position: absolute;
-        top: 50%;
-        width: 8em;
-    }
-    &:before {
-        background: $base2;
-        opacity: .75;
-    }
-    &:after {
-        -webkit-animation-delay: $transition-duration;
-        -webkit-animation-direction: alternate-reverse;
-        background: $base1;
-        opacity: .5;
-    }
-
     .is-loading & {
         opacity: 1;
         visibility: visible;
     }
+}
+.overlay:before,
+.overlay:after {
+    -webkit-animation-duration: ($transition-duration * 2);
+            animation-duration: ($transition-duration * 2);
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    -webkit-animation-name: overlayLoading;
+            animation-name: overlayLoading;
+    -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+    border-radius: 50%;
+    content: '';
+    display: inline-block;
+    height: 8em;
+    margin: -4em 0 0 -4em;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    width: 8em;
+}
+.overlay:before {
+    -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+    background: $base2;
+        opacity: .75;
+}
+.overlay:after {
+    -webkit-animation-delay: $transition-duration;
+            animation-delay: $transition-duration;
+    -webkit-animation-direction: alternate-reverse;
+            animation-direction: alternate-reverse;
+    background: $base1;
+    opacity: .5;
 }
 
 @-webkit-keyframes overlayLoading {
@@ -53,5 +63,13 @@
     to {
         -webkit-transform: translateX(25%);
                 transform: translateX(25%);
+    }
+}
+@keyframes overlayLoading {
+    from {
+        transform: translateX(-25%);
+    }
+    to {
+        transform: translateX(25%);
     }
 }

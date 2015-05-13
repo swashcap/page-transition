@@ -173,7 +173,8 @@
             color: $base03;
 
             &:after {
-                transform: none;
+                -webkit-transform: none;
+                        transform: none;
             }
             .updated {
                 color: $base03;
@@ -188,8 +189,10 @@
             height: 100%;
             left: 0;
             position: absolute;
-            transform: translateY(92%);
-            transition: transform $transition-duration;
+            -webkit-transform: translateY(92%);
+                    transform: translateY(92%);
+            -webkit-transition: -webkit-transform $transition-duration;
+                    transition: transform $transition-duration;
             width: 100%;
         }
     }

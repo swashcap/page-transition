@@ -132,7 +132,8 @@
             }
         }
         .updated {
-            transition: none;
+            -webkit-transition: none;
+                    transition: none;
         }
     }
 }
@@ -151,7 +152,8 @@
                 .entry-title,
                 .updated {
                     opacity: 1;
-                    transform: translateX(0);
+                    -webkit-transform: translateX(0);
+                            transform: translateX(0);
                 }
             }
         }
@@ -159,8 +161,10 @@
         .updated {
             opacity: 0;
             transition-duration: $transition-duration;
-            transition-property: opacity, transform;
-            transform: translateX(25%);
+            -webkit-transition-property: opacity, -webkit-transform;
+                    transition-property: opacity, transform;
+            -webkit-transform: translateX(25%);
+                    transform: translateX(25%);
         }
         .updated {
             display: block;
@@ -173,7 +177,8 @@
     .article-mini {
         .entry-title,
         .updated {
-            transform: translateX(-25%);
+            -webkit-transform: translateX(-25%);
+                    transform: translateX(-25%);
         }
     }
 }
@@ -182,18 +187,23 @@
 .item-1 .article-mini {
     a {
         color: $yellow;
+        display: -webkit-flex;
         display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
+        -webkit-flex-direction: column;
+                flex-direction: column;
+        -webkit-justify-content: flex-end;
+                justify-content: flex-end;
 
         &:focus,
         &:hover,
         &:active {
             &:before {
-                transform: translateY(0);
+                -webkit-transform: translateY(0);
+                        transform: translateY(0);
             }
             &:after {
-                transform: translateY(100%);
+                -webkit-transform: translateY(100%);
+                        transform: translateY(100%);
             }
         }
 
@@ -204,15 +214,18 @@
             height: 50%;
             left: 0;
             position: absolute;
-            transform: translateY(-100%);
-            transition: transform $transition-duration;
+            -webkit-transform: translateY(-100%);
+                    transform: translateY(-100%);
+            -webkit-transition: -webkit-transform $transition-duration;
+                    transition: transform $transition-duration;
             top: 0;
             width: 100%;
         }
 
         &:after {
             height: 1em;
-            transform: none;
+            -webkit-transform: none;
+                    transform: none;
         }
     }
     .entry-title {
@@ -255,12 +268,15 @@
 .item-4 .article-mini {
     a {
         border: .25em solid $base02;
-        background: none; // $base2;
+        background: none;
         text-align: center;
         color: $base02;
+        display: -webkit-flex;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        -webkit-flex-direction: column;
+                flex-direction: column;
+        -webkit-justify-content: center;
+                justify-content: center;
         padding: .75em;
         transition-duration: $transition-duration;
         transition-property: background, color;
@@ -273,7 +289,8 @@
 
             &:before,
             &:after {
-                transform: none;
+                -webkit-transform: none;
+                        transform: none;
             }
             .updated {
                 opacity: 1;
@@ -288,20 +305,23 @@
             left: 0;
             position: absolute;
             top: 0;
-            transition: transform $transition-duration;
+            -webkit-transition: -webkit-transform $transition-duration;
+                    transition: transform $transition-duration;
             width: 100%;
         }
 
         &:before {
             background: linear-gradient(-45deg, $base01 50%, transparent 50%);
             background-size: 100px 100px;
-            transform: translateX(-100%);
+            -webkit-transform: translateX(-100%);
+                    transform: translateX(-100%);
         }
         &:after {
             background: linear-gradient(45deg, $base1 50%, transparent 50%);
             background-size: 50px 50px;
             opacity: .75;
-            transform: translateY(-100%);
+            -webkit-transform: translateY(-100%);
+                    transform: translateY(-100%);
         }
     }
     .entry-title {
@@ -370,9 +390,11 @@
     .entry-title,
     .updated {
         opacity: 0;
-        transform: translateX(10%);
+        -webkit-transform: translateX(10%);
+                transform: translateX(10%);
         transition-duration: $transition-duration;
-        transition-property: opacity, transform;
+        -webkit-transition-property: opacity, -webkit-transform;
+                transition-property: opacity, transform;
     }
     .entry-title {
         font-weight: 400;
@@ -390,9 +412,12 @@
     a {
         background-color: $base03;
         color: $base2;
+        display: -webkit-flex;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        -webkit-flex-direction: column;
+                flex-direction: column;
+        -webkit-justify-content: center;
+                justify-content: center;
         padding-left: 20%;
         text-align: right;
         transition: color $transition-duration;
@@ -403,10 +428,12 @@
             color: $base3;
 
             &:before {
-                transform: translateY(100%);
+                -webkit-transform: translateY(100%);
+                        transform: translateY(100%);
             }
             &:after {
-                transform: translateY(3em);
+                -webkit-transform: translateY(100%);
+                        transform: translateY(3em);
             }
             .updated {
                 color: $base3;
@@ -427,8 +454,10 @@
             left: 0;
             height: 6em;
             position: absolute;
-            transform: translateY(50%);
-            transition: transform $transition-duration;
+            -webkit-transform: translateY(50%);
+                    transform: translateY(50%);
+            -webkit-transition: -webkit-transform $transition-duration;
+                    transition: transform $transition-duration;
             width: 100%;
         }
         &:after {
@@ -440,7 +469,8 @@
             height: 0;
             left: -2.5em;
             top: -3em;
-            transform: translateY(0);
+            -webkit-transform: translateY(0);
+                    transform: translateY(0);
             width: 0;
         }
     }
@@ -482,7 +512,8 @@
             background: $base2;
             top: -8em;
             left: 1em;
-            transform: none;
+            -webkit-transform: none;
+                    transform: none;
             opacity: .5;
         }
         .updated {

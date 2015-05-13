@@ -8,7 +8,8 @@
     font-family: $font-sans-serif;
     text-align: center;
     transition-duration: $transition-duration;
-    transition-property: background, opacity, transform;
+    -webkit-transition-property: background, opacity, -webkit-transform;
+            transition-property: background, opacity, transform;
 
     .wrapper {
         position: relative;
@@ -35,12 +36,14 @@
         }
 
         @media (min-width: $screen-md) {
-            transform: translateY(-2rem);
+            -webkit-transform: translateY(-2rem);
+                    transform: translateY(-2rem);
 
             .site-header__title,
             .site-header__back,
             .site-header__about {
-                transform: translateY(1rem);
+                -webkit-transform: translateY(1rem);
+                        transform: translateY(1rem);
             }
         }
     }
@@ -57,7 +60,8 @@
     line-height: 1;
     padding: 1em 0;
     text-decoration: none;
-    transition: transform $transition-duration;
+    -webkit-transition: -webkit-transform $transition-duration;
+            transition: transform $transition-duration;
 }
 
 .site-header__back,
@@ -79,6 +83,7 @@
     left: 0;
     padding: 1em;
     transition-duration: $transition-duration;
+    -webkit-transition-property: opacity, -webkit-transform;
     transition-property: opacity, transform;
 
     &:focus,
@@ -103,7 +108,8 @@
     padding: 1em;
     right: 0;
     text-decoration: none;
-    transition: transform $transition-duration;
+    -webkit-transition: -webkit-transform $transition-duration;
+            transition: transform $transition-duration;
 
     &:focus,
     &:hover,
