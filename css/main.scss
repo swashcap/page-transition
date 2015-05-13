@@ -16,6 +16,7 @@
 @import 'module/site-header';
 
 @import 'layout/home';
+@import 'layout/home-items';
 
 .wrapper {
     @include horizontal-padding;

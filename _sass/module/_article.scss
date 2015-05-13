@@ -179,12 +179,15 @@
         &:active {
             color: $base03;
 
-            &:after {
-                -webkit-transform: none;
-                        transform: none;
-            }
             .updated {
                 color: $base03;
+            }
+
+            .no-touch & {
+                &:after {
+                    -webkit-transform: none;
+                            transform: none;
+                }
             }
         }
 
