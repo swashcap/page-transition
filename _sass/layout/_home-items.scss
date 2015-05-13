@@ -150,6 +150,9 @@
         line-height: 1.1;
         text-transform: uppercase;
 
+        @media (min-width: $screen-md) {
+            font-size: 275%;
+        }
         @media (min-width: $screen-lg) {
             font-size: 360%;
         }
@@ -157,7 +160,7 @@
     .updated {
         color: $base01;
 
-        @media (min-width: $screen-lg) {
+        @media (min-width: $screen-md) {
             font-size: 125%;
         }
     }
@@ -247,6 +250,9 @@
         font-family: $font-serif;
         font-weight: 400;
 
+        @media (min-width: $screen-md) {
+            font-size: 200%;
+        }
         @media (min-width: $screen-lg) {
             font-size: 225%;
         }
@@ -257,6 +263,9 @@
         opacity: .5;
         transition: opacity $transition-duration;
 
+        @media (min-width: $screen-md) {
+            font-size: 125%;
+        }
         @media (min-width: $screen-lg) {
             font-size: 150%;
         }
@@ -277,6 +286,9 @@
         padding: 0;
 
         @media (min-width: $screen-md) {
+            padding-left: 10%;
+        }
+        @media (min-width: $screen-lg) {
             padding-left: 30%;
         }
     }
