@@ -17,7 +17,7 @@
                 <div class="wrapper">
                     <footer id="about" class="site-footer" role="contentinfo">
                         <div class="site-footer__left">
-                            <p>{{ site.description }}</p>
+                            {{ site.description | markdownify }}
                         </div>
                         <div class="site-footer__right">
                             <p>A fun project by <a href="http://swashcap.com/" rel="author">Cory Reed</a>. See the <a href="https://github.com/swashcap/page-transition">source code on GitHub</a>.</p>
