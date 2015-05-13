@@ -1,6 +1,16 @@
 (function ($) {
     'use strict';
 
+    /**
+     * Prevent 300ms delay on iOS devices.
+     * @{@link  https://github.com/ftlabs/fastclick}
+     */
+    if ('addEventListener' in document) {
+        document.addEventListener('DOMContentLoaded', function() {
+            FastClick.attach(document.body);
+        }, false);
+    }
+
     var $app = $('body').eq(0);
 
     var Transition = {
